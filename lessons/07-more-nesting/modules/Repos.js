@@ -7,8 +7,10 @@ export default React.createClass({
       <div>
         <h2>Repos</h2>
         <ul>
-          <li><Link to="/repos/reactjs/react-router">React Router</Link></li>
-          <li><Link to="/repos/facebook/react">React</Link></li>
+          <li><Link to="/repos/reactjs/react-router" activeClassName="active">React Router</Link></li>
+          <li><Link to="/repos/facebook/react" activeClassName="active">React</Link></li>
+          {/* will render `Repo.js` when at /repos/:userName/:repoName */}
+          {this.props.children}
         </ul>
       </div>
     )
