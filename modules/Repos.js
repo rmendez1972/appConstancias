@@ -1,5 +1,7 @@
-import React from 'react'
-import NavLink from './NavLink'
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom"
+
 
 export default React.createClass({
   contextTypes: {
@@ -17,19 +19,9 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <h2>Repos</h2>
-        <ul>
-          <li><NavLink to="/repos/reactjs/react-router">React Router</NavLink></li>
-          <li><NavLink to="/repos/facebook/react">React</NavLink></li>
-          <li>
-            <form onSubmit={this.handleSubmit}>
-              <input type="text" placeholder="userName"/> / {' '}
-              <input type="text" placeholder="repo"/>{' '}
-              <button type="submit">Go</button>
-            </form>
-          </li>
-        </ul>
-        {this.props.children}
+        <h2>Pagina Repos</h2>
+        <Link to="/repos/TATA/react">Facebook</Link>
+
       </div>
     )
   }

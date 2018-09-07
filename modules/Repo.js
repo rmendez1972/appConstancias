@@ -1,12 +1,10 @@
 import React from 'react'
 
-export default React.createClass({
-  render() {
-    const { userName, repoName } = this.props.params
+
+export default function Repo(props) {
     return (
       <div>
-        <h2>{userName} / {repoName}</h2>
+        <h2>{props.match.params.param1}-{props.match.params.param2}</h2>
       </div>
     )
-  }
-})
+}
