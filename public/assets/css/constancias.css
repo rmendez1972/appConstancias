@@ -7,9 +7,11 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background: #ffffff;
+  background-color:#E9EBE8!important;
 }
 .footer {
-  position: absolute;
+  /*position: absolute;  comentado igh*/
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
@@ -36,19 +38,19 @@ code {
   font-size: 80%;
 }
 
-.col-lg-4-fondo { /*Estilo personalizado para el footer*/
-  font-family: Conv_Futura-T-OT-Book;
-  font-size: 1.2em;
-  color:#ffffff;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 130px;
-  background-image:url("../img/ceiba_blanca_pequeña.png");
-  background-size: 100px 100px;
-  background-position: 0px 10px;
-  background-repeat: no-repeat;
-  line-height: normal;
-  
+.navbar-header .navbar-brand {
+	color: white;
+	color: #00b3fe;
+}
+
+
+/* Estilos personalizados*/
+.footter21 { /*Estilo personalizado para el footer*/ 
+background-color: #00A6CA;
+padding-top:5px;  
+font-family: Conv_Futura-T-OT-Book;
+font-size: 1.2em;
+color:#ffffff;
 
 }
 
@@ -57,11 +59,12 @@ code {
   padding-left: 15px;*/
   margin-right: auto;
   margin-left: auto;
-  margin-top: 50px;
+  margin-top: -10px;
   background-color: #ffffff;
-  height: 601px;
+  height: 600px;
   background-image: url("../img/fondo_soles_grises.png");
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  margin-left: -15px;
+ 
+ /* background-position: bottom left;*/
+  background-position-y: 90px;
+  background-repeat: no-repeat; 
 }
