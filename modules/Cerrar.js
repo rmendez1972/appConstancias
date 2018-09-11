@@ -2,6 +2,6 @@ import React from 'react'
 
 export default React.createClass({
   render() {
-    return <div>About</div>
+    return <div>Tu sesión se ha cerrado regrea pronto.</div>
   }
 })

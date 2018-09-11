@@ -48,7 +48,7 @@ code {
   background-position: 0px 10px;
   background-repeat: no-repeat;
   line-height: normal;
-  
+
 
 }
 
@@ -59,9 +59,51 @@ code {
   margin-left: auto;
   margin-top: 50px;
   background-color: #ffffff;
-  height: 601px;
+  height: 600px;
   background-image: url("../img/fondo_soles_grises.png");
   background-repeat: no-repeat;
   background-position: bottom left;
   margin-left: -15px;
+}
+
+
+/* estilos web components */
+.App {
+  margin-top: 15px;
+}
+
+.App .navbar-brand {
+  font-weight: bold;
+}
+
+.Home .lander {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.Home .lander h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.Home .lander p {
+  color: #999;
+}
+
+
+.NotFound {
+  padding-top: 100px;
+  text-align: center;
+}
+
+
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
 }
