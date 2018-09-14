@@ -20,7 +20,7 @@ export default React.createClass({
     return (
       <div>
         <h2>Pagina Repos</h2>
-        <Link to="/repos/TATA/react">Facebook</Link>
+        <Link to="/repos/TATA/pelos">Facebook</Link>
 
       </div>
     )

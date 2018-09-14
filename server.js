@@ -13,7 +13,7 @@ var app = express()
 app.use(compression())
 
 // serve our static stuff like index.css
-app.use(express.static(path.join(__dirname, 'public')))
+//app.use(express.static(path.join(__dirname, 'public')))
 
 // send all requests to index.html so browserHistory works
 app.get('*', (req, res) => {
@@ -41,15 +41,16 @@ app.get('*', (req, res) => {
 
 function renderPage(appHtml) {
   return `
-    <!doctype html public="storage">
-    <html>
-    <meta charset=utf-8/>
-    <title>My First React Router App</title>
-    <link rel=stylesheet href=/index.css>
-    <div id=app>${appHtml}</div>
-    <script src="/bundle.js"></script>
-   `
+  <!doctype html public="storage">
+  <html>
+  <meta charset=utf-8/>
+  <title>My First React Router App xxx</title>
+  <link rel=stylesheet href=/index.css>
+  <div id=App>${appHtml}</div>
+  <script src="/server.bundle.js"></script>
+`
 }
+
 
 var PORT = process.env.PORT || 8089
 app.listen(PORT, function() {
