@@ -18,13 +18,8 @@ var app = express();
 app.use(compression());
 
 
-<<<<<<< HEAD
-// serve our static stuff like index.css
-//app.use(express.static(path.join(__dirname, 'public')))
-=======
 // serve our static stuff like constancias.css
 app.use('/assets',express.static(path.join(__dirname, 'public/assets')))
->>>>>>> 572544c50895624bb442b3da15c9a5135eb166c1
 
 /* we'll redirect all requests to react app*/
 app.get('*', (req, res) => {
@@ -42,25 +37,11 @@ app.get('*', (req, res) => {
         return;
   }
 
-<<<<<<< HEAD
-function renderPage(appHtml) {
-  return `
-  <!doctype html public="storage">
-  <html>
-  <meta charset=utf-8/>
-  <title>My First React Router App xxx</title>
-  <link rel=stylesheet href=/index.css>
-  <div id=App>${appHtml}</div>
-  <script src="/server.bundle.js"></script>
-`
-}
-=======
   /* turning all app stuff to string */
   const html=ReactDOMServer.renderToString(appWithRouter);
   /* if code=200 then send all tha react code like parameter to html layout */
   res.status(200).send(indexserver(html));
 });
->>>>>>> 572544c50895624bb442b3da15c9a5135eb166c1
 
 
 var PORT = process.env.PORT || 8089
