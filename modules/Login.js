@@ -10,40 +10,57 @@ export default class Login extends Component {
       email: "",
       password: ""
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('esto es despues de renderizar la vista' );
+  }
+
+  componentWillUnmount() {
+
   }
 
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
+    //return this.state.email.length > 0 && this.state.password.length > 0;
+    return true;
   }
 
-  /*handleChange = (event) => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
+  handleSubmit(e) {
+    console.log('dentro de handleSubmit');
+    e.preventDefault();
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-  }*/
+  handleChange(e) {
+    console.log('dentro de handleChange');
+    this.setState(state => ({
+      email: e.target.value
+    }));
+    console.log ('hasta aqui no hay problem dentro de handleChange ');
+  }
+
+
 
   render() {
+
     return (
       <div className="Login">
-        <form >
+        <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
             <ControlLabel>Email</ControlLabel>
             <FormControl
               autoFocus
               type="email"
               value={this.state.email}
-
+              onChange={this.handleChange}
             />
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
             <ControlLabel>Password</ControlLabel>
             <FormControl
               value={this.state.password}
-
+              onChange={this.handleChange}
               type="password"
             />
           </FormGroup>
