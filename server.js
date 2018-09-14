@@ -1,44 +1,48 @@
 var express = require('express')
 var path = require('path')
 var compression = require('compression')
+
+
 import React from 'react'
-// usamos esto para renderizar nuestra app a html
-import { renderToString } from 'react-dom/server'
-// y esto para hacer q coincida una URL con una routa y luego renderizar
-import { match, RouterContext } from 'react-router'
+import ReactDOMServer from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 import routes from './modules/Routes'
+import App from "./modules/App";
+/* layourt used when server side render*/
+import indexserver from './indexserver';
 
-var app = express()
 
-app.use(compression())
+/* creating a express instance */
+var app = express();
+app.use(compression());
 
+
+<<<<<<< HEAD
 // serve our static stuff like index.css
 //app.use(express.static(path.join(__dirname, 'public')))
+=======
+// serve our static stuff like constancias.css
+app.use('/assets',express.static(path.join(__dirname, 'public/assets')))
+>>>>>>> 572544c50895624bb442b3da15c9a5135eb166c1
 
-// send all requests to index.html so browserHistory works
+/* we'll redirect all requests to react app*/
 app.get('*', (req, res) => {
-  // match the routes to the url
-  match({ routes: routes, location: req.url }, (err, redirect, props) => {
-    // in here we can make some decisions all at once
-    if (err) {
-      // there was an error somewhere during route matching
-      res.status(500).send(err.message)
-    } else if (redirect) {
-      // we haven't talked about `onEnter` hooks on routes, but before a
-      // route is entered, it can redirect. Here we handle on the server.
-      res.redirect(redirect.pathname + redirect.search)
-    } else if (props) {
-      // if we got props then we matched a route and can render
-      const appHtml = renderToString(<RouterContext {...props}/>)
-      res.send(renderPage(appHtml))
-    } else {
-      // no errors, no redirect, we just didn't match anything
-      res.status(404).send('Pagina No econtrada')
-    }
-  })
-})
 
+  const context = {};
 
+  const appWithRouter = (
+        <StaticRouter location={req.url} context={context}>
+            <App />
+        </StaticRouter>
+  );
+
+  if (context.url) {
+        res.redirect(context.url);
+        return;
+  }
+
+<<<<<<< HEAD
 function renderPage(appHtml) {
   return `
   <!doctype html public="storage">
@@ -50,6 +54,13 @@ function renderPage(appHtml) {
   <script src="/server.bundle.js"></script>
 `
 }
+=======
+  /* turning all app stuff to string */
+  const html=ReactDOMServer.renderToString(appWithRouter);
+  /* if code=200 then send all tha react code like parameter to html layout */
+  res.status(200).send(indexserver(html));
+});
+>>>>>>> 572544c50895624bb442b3da15c9a5135eb166c1
 
 
 var PORT = process.env.PORT || 8089
